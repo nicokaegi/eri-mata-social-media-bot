@@ -1,0 +1,10 @@
+<div data-bs-spy="scroll" class="col" id="chat">
+{{ range  . }}
+	<div class="card">
+	  <h6 class="card-subtitle mb-2 text-body-secondary">{{ .role }}</h5>
+	  <div class="card-body">
+		{{ .content }}
+	  </div>
+	</div>
+{{ end }}
+</div>
