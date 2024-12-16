@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+{{template "head" .}}
+
+<body>
+
+{{template "navBar" .}}
+
+<div hx-get="/modelSettings/?settings=1" hx-target="this" hx-swap="outerHTML" hx-trigger="load">
+</div>
+
+</body>
+</html>
+

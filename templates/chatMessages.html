@@ -1,10 +1,17 @@
 <div data-bs-spy="scroll" class="col" id="chat">
-{{ range  . }}
-	<div class="card">
-	  <h6 class="card-subtitle mb-2 text-body-secondary">{{ .role }}</h5>
-	  <div class="card-body">
-		{{ .content }}
-	  </div>
-	</div>
+{{ range . }}
+
+	{{if not (eq "system" .Role) }}
+		<div class="card">
+		  <h6 class="card-subtitle mb-2 text-body-secondary">{{ .Role }}</h5>
+		  <div class="card-body">
+			{{if (eq "user" .Role)}}
+			  <right> {{ .Content }}</right>
+			{{else}}
+			  <left> {{ .Content }}</left>
+			{{end}}
+		  </div>
+		</div>
+	{{end}}
 {{ end }}
 </div>
