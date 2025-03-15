@@ -1,0 +1,2 @@
+FROM granite3-moe:3b-instruct-q8_0
+PARAMETER temperature 1

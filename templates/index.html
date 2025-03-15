@@ -3,11 +3,54 @@
 
 {{template "head" .}}
 
-<body>
+<body class="bg-zinc-900">
 
-{{template "navBar" .}}
+{{/* template "navBar" . */}}
 
-{{template "MastadonPostAndChat" .}}
+<main>
+
+	<div class="grid grid-cols-4 grid-rows-4 divide-x-2 divide-violet-900 h-screen text-gray-300" hx-ext="ws" ws-connect="/mainFeedPage">
+	    <div class="col-span-2 row-span-4 overflow-y-auto divide-y-2 divide divide-violet-900" hx-get="/loadPosts" hx-trigger="load, every 5s">
+	    </div>
+		    <div class="col-span-2 row-span-4 col-start-3 overflow-y-auto">
+			<div class="mx-4 my-2 relative">
+				<div id="chatBox" class="basis-1/3 grid grid-cols-1"  hx-get="/chat" hx-swap="innerHTML" hx-trigger="load, every .2s">	
+				</div>
+				<form class="basis-1/3 " id="userMessageBox" hx-post="/chat" hx-target="#textInput" hx-trigger="submit, keyup[altKey&&shiftKey&&key=='Enter'] from:chatBox" hx-swap="innerHTML">
+				  <div class="">
+				    <input id="textInput" name="userMessageBox" class="rounded border-2 border-violet-900 fixed bottom-0 w-232 my-4 mr-4 bg-zinc-950" placeholder="   use this to talk to eri   " hx-trigger="keyup[key=='Enter']"></input>
+				  </div>
+				</form>
+			</div>
+		    </div>
+		</div>
+	</div>
+
+
+</main>
 </body>
+
+<!--
+
+
+	<div class="grid grid-cols-4 grid-rows-4 divide-x-2 divide-violet-900 h-screen text-gray-300">
+	    <div class="col-span-2 row-span-4 overflow-y-auto divide-y-2 divide divide-violet-900" hx-get="/loadPosts" hx-trigger="load, every 5s">
+	    </div>
+		    <div class="col-span-2 row-span-4 col-start-3 overflow-y-auto">
+			<div class="mx-4 my-2 relative">
+				<div id="chatBox" class="basis-1/3 grid grid-cols-1"  hx-get="/chat" hx-swap="innerHTML" hx-trigger="load, every .2s">	
+				</div>
+				<form class="basis-1/3 " id="userMessageBox" hx-post="/chat" hx-target="#textInput" hx-trigger="submit, keyup[altKey&&shiftKey&&key=='Enter'] from:chatBox" hx-swap="innerHTML">
+				  <div class="">
+				    <input id="textInput" name="userMessageBox" class="rounded border-2 border-violet-900 fixed bottom-0 w-232 my-4 mr-4 bg-zinc-950" placeholder="   use this to talk to eri   " hx-trigger="keyup[key=='Enter']"></input>
+				  </div>
+				</form>
+			</div>
+		    </div>
+		</div>
+	</div>
+
+-->
+
 </html>
 

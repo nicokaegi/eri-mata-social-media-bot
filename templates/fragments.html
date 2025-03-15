@@ -1,0 +1,16 @@
+{{/* since htmx sites tend to be just a GIANT collection of html bits this file is a collection for all the ones that don't fit in a particular category */}}
+
+{{define "mastadonPostFragment"}}
+
+	{{ range . }}
+	<div class="my-2">
+	  <p class="font-bold my-1">{{ .account }}</p>
+	  <div >
+		<span>{{ .content }}</span>
+	  </div>
+	</div>
+	{{ end }}
+
+
+{{end}}
+

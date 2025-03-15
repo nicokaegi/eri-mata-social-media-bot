@@ -1,0 +1,8 @@
+<mastadon posts>
+	{{ range . }}
+		  <mastadonID> {{ .id }}</mastadonID>
+		  <creationDate>{{ .created_at }}<CreationDate>
+		  <content>{{ .content }}</content>
+	{{ end }}
+</mastadon posts>
+
